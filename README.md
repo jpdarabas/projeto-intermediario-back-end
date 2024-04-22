@@ -64,6 +64,11 @@ export MINHA_CHAVE_API=seu_valor_de_chave_api
     <td>String</td>
     <td>Região/estado/distrido da cidade</td>
   </tr>
+  <tr>
+    <td>country</td>
+    <td>String</td>
+    <td>Sigla do país da cidade</td>
+  </tr>
    <tr>
     <td>coordinates</td>
     <td>Coordinate</td>
@@ -78,7 +83,7 @@ export MINHA_CHAVE_API=seu_valor_de_chave_api
 
 ### Post: /distancia
 
-#### Requisição:
+#### Requisição (sendo cidade1 e cidade2 cidades JÁ ENCONTRADAS POR /cidade, conferir nome em /listaCidades):
 ```json
 {"cidade1": "nome-cidade1",
 "cidade2": "nome-cidade2"}
