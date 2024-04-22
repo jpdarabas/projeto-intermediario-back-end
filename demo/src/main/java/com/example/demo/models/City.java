@@ -6,12 +6,6 @@ public class City {
     private String country;
     private Coordinates coordinates;
 
-    public City(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-    public Coordinates getCoordinates() {
-        return coordinates;
-    }
     public City(String name, String region, String country, Coordinates coordinates) {
         this.name = name;
         this.region = region;
@@ -36,10 +30,10 @@ public class City {
     public void setCountry(String country) {
         this.country = country;
     }
-    public Coordinates getCoordi() {
+    public Coordinates getCoordinates() {
         return coordinates;
     }
-    public void setCoordi(Coordinates coordinates) {
+    public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
     };
 }

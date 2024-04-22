@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -35,4 +37,41 @@ public class LocationService {
 
         return new City(city, region, country, new Coordinates(latitude, longitude));
     }
+
+    public String distance(List<City> listaCidades, String cidade1, String cidade2){
+        Coordinates cidade1Coordinates = null;
+        Coordinates cidade2Coordinates = null;
+        for (City cidade : listaCidades) {
+            if (cidade.getName().equalsIgnoreCase(cidade1)) {
+                cidade1Coordinates = cidade.getCoordinates();
+            }
+        }
+        for (City cidade : listaCidades) {
+            if (cidade.getName().equalsIgnoreCase(cidade2)) {
+                cidade2Coordinates = cidade.getCoordinates();
+            }
+        }
+
+        if (cidade1Coordinates != null && cidade2Coordinates != null) {
+
+            double lat1 = cidade1Coordinates.getLatitude();
+            double lon1 = cidade1Coordinates.getLongitude();
+            
+            double lat2 = cidade2Coordinates.getLatitude();
+            double lon2 = cidade2Coordinates.getLongitude();
+            
+			double angulo = lon1 - lon2;
+            
+			double dist = Math.sin(Math.toRadians(lat1)) * Math.sin(Math.toRadians(lat2)) + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(angulo));
+			dist = Math.acos(dist);
+			dist = Math.toDegrees(dist);
+			dist = dist * 60 * 1.853159616;
+			
+			return (int) dist + "km";
+		
+        }else{
+            return "Cidade não encontrada";
+        }
+    }
+
 }
