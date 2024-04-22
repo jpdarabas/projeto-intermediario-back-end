@@ -20,7 +20,7 @@ Set-Item -Path Env:api_key -Value "SUA_CHAVE_API"
 ```
 MacOS ou Linux:
 ```
-export MINHA_CHAVE_API=seu_valor_de_chave_api
+export api_key=SUA_CHAVE_API
 ```
 
 
@@ -71,7 +71,7 @@ export MINHA_CHAVE_API=seu_valor_de_chave_api
   </tr>
    <tr>
     <td>coordinates</td>
-    <td>Coordinate</td>
+    <td>Coordinates</td>
     <td>Objeto contendo latitude e longitude</td>
   </tr>
 </table>
